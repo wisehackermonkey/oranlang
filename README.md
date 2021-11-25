@@ -24,6 +24,13 @@
 ### 
 ##### 
 ```bash
+yarn global add nearley 
+
+nearley-railroad grammer.ne -o grammer.html
+yarn global add http-server nodemon
+http-server
+
+nodemon -w grammer.ne --exec 'nearley-railroad grammer.ne -o grammer.html && http-server'
 ``` 
 ## Open Broswer to [`http://localhost:3000`](http://localhost:3000)
 
