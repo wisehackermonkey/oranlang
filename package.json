@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "generateParser": "antlr4-tool -i && antlr4-tool -o parser oranlang.g4"
+  },
+  "dependencies": {
+    "antlr4": "^4.9.3"
+  },
+  "devDependencies": {
+    "antlr4-tool": "^1.1.1"
+  }
+}

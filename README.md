@@ -24,13 +24,7 @@
 ### 
 ##### 
 ```bash
-yarn global add nearley 
 
-nearley-railroad grammer.ne -o grammer.html
-yarn global add http-server nodemon
-http-server
-
-nodemon -w grammer.ne --exec 'nearley-railroad grammer.ne -o grammer.html && http-server'
 ``` 
 ## Open Broswer to [`http://localhost:3000`](http://localhost:3000)
 
@@ -77,18 +71,45 @@ cd oranlang
 
 
 
+# install antlr
+```
+choco install antlr4
+```
+## or the hardway 
+[antlr4/getting-started.md at master · antlr/antlr4](https://github.com/antlr/antlr4/blob/master/doc/getting-started.md#windows)
+[https://www.antlr.org/download/](https://www.antlr.org/download/)
+
+```
+antlr4 oranlang.g4
+javac oranlang*.java
+grun oranlang r -tree
+
+yarn
+yarn run generateParser
+antlr4-tool -i && antlr4-tool -o parser oranlang.g4
 
 
+SET CLASSPATH=.;C:\Javalib\antlr-4.9-complete.jar;%CLASSPATH%
+
+C:\Users\o\oranapps\antlr-4.9.3-complete.jar
+SET CLASSPATH=.;C:\Users\o\oranapps\antlr-4.9.3-complete.jar;%CLASSPATH%
+.;C:\Program Files\Java\libs\antlr-4.9.3-complete.jar;%CLASSPATH%
+
+<!-- antlr4 oranlang.g4 -->
+java -jar C:\Users\o\oranapps\antlr-4.9.3-complete.jar oranlang.g4
+javac oranlang*.java
+
+java org.antlr.v4.gui.TestRig  oranlang r -tree
 
 
-
-
+```
  -----------------
 # Screenshots
 - <!-- <img src="NNNNNNNNNNNNN" width="400"> -->
 
 
-
+alias antlr4='java -Xmx500M -cp "/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
+alias grun='java -Xmx500M -cp "/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH" org.antlr.v4.gui.TestRig'
 
 
 
