@@ -34,6 +34,10 @@ const generateStatement = (token) => {
 
             return `[${arrayList}]`; break;
 
+        case "print":
+            let printable_token = generateStatement(token.value)
+            return `console.log(${printable_token})`;
+            break;
         case "number": return token.value; break;
         case "var": return token.value; break;
 

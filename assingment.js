@@ -99,11 +99,19 @@ var grammar = {
         }
         },
     {"name": "main", "symbols": ["_", "code_block"], "postprocess": (d) => d[1]},
-    {"name": "code_block", "symbols": ["_", {"literal":"\n"}, "code_block"], "postprocess": (d) => d[2]},
-    {"name": "code_block", "symbols": ["_", "runnable_code", "_"], "postprocess": d => [d[1]]},
-    {"name": "code_block", "symbols": ["_", "runnable_code", "_", {"literal":"\n"}, "code_block"], "postprocess": d => [d[1], ...d[4]]},
-    {"name": "runnable_code", "symbols": ["assignment"]},
-    {"name": "runnable_code", "symbols": ["print"]},
+    {"name": "code_block", "symbols": ["_", {"literal":"\n"}, "code_block"], "postprocess": d => d[2]},
+    {"name": "code_block", "symbols": ["_", "runnable_code", "_"], "postprocess": d => d[1]},
+    {"name": "code_block", "symbols": ["_", "runnable_code", "_", {"literal":"\n"}, "code_block"], "postprocess":  d => {
+        	//fixes issue with not iteriable  `"\n" code_block`
+        	if(d[4].length >= 1){
+        		return [d[1], ...d[4]]
+        	}else{
+        		return [d[1], d[4]]
+        
+        	}
+        }},
+    {"name": "runnable_code", "symbols": ["assignment"], "postprocess": id},
+    {"name": "runnable_code", "symbols": ["print"], "postprocess": id},
     {"name": "assignment$string$1", "symbols": [{"literal":"="}, {"literal":">"}], "postprocess": function joiner(d) {return d.join('');}},
     {"name": "assignment", "symbols": ["operation", "_", "assignment$string$1", "_", "var"], "postprocess":  d=>{ 
         	return {"type":"assignment","name": d[4], "value":  d[0]  } 

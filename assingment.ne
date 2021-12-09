@@ -34,10 +34,14 @@ assignment -> var _ "<=" _ operation  {% d=>{
 #--------print------------
 print -> "print" _  operation _   {% d=>  ( {"type":"print","name": null,  "value":d[2] } ) %}
  
-# --------exterinal----------
+ 
+ 
+# --------operation----------
+operation -> var {% d=>  ( {"type":"var","name": null,  "value":d[0] } ) %}
 operation ->   point {% d=>  ( {"type":"point","name": null,  "value":d[0] } ) %}
 operation ->  number {% id %}
 operation ->  quoated_string {% id %}
+  
  
 
 #--------point-------
