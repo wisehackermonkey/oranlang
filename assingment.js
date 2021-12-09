@@ -98,16 +98,16 @@ var grammar = {
     {"name": "__$ebnf$1", "symbols": ["__$ebnf$1", "wschar"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
     {"name": "__", "symbols": ["__$ebnf$1"], "postprocess": function(d) {return null;}},
     {"name": "wschar", "symbols": [/[ \t\n\v\f]/], "postprocess": id},
-    {"name": "main", "symbols": ["asignment"], "postprocess": id},
-    {"name": "asignment$string$1", "symbols": [{"literal":"="}, {"literal":">"}], "postprocess": function joiner(d) {return d.join('');}},
-    {"name": "asignment", "symbols": ["operation", "_", "asignment$string$1", "_", "var"], "postprocess":  d=>{ 
-        	return {"type":"asignment","name": d[4], "value":  d[0]  } 
+    {"name": "main", "symbols": ["assignment"]},
+    {"name": "assignment$string$1", "symbols": [{"literal":"="}, {"literal":">"}], "postprocess": function joiner(d) {return d.join('');}},
+    {"name": "assignment", "symbols": ["operation", "_", "assignment$string$1", "_", "var"], "postprocess":  d=>{ 
+        	return {"type":"assignment","name": d[4], "value":  d[0]  } 
         
         }},
-    {"name": "asignment$string$2", "symbols": [{"literal":"<"}, {"literal":"="}], "postprocess": function joiner(d) {return d.join('');}},
-    {"name": "asignment", "symbols": ["var", "_", "asignment$string$2", "_", "operation"], "postprocess":  d=>{  
+    {"name": "assignment$string$2", "symbols": [{"literal":"<"}, {"literal":"="}], "postprocess": function joiner(d) {return d.join('');}},
+    {"name": "assignment", "symbols": ["var", "_", "assignment$string$2", "_", "operation"], "postprocess":  d=>{  
         
-        return {"type":"asignment","name": d[0], "value":  d[4]  } }},
+        return {"type":"assignment","name": d[0], "value":  d[4]  } }},
     {"name": "operation", "symbols": ["point"], "postprocess": d=>  ( {"type":"point","name": null,  "value":d[0] } )},
     {"name": "operation", "symbols": ["number"], "postprocess": id},
     {"name": "operation", "symbols": ["quoated_string"], "postprocess": id},

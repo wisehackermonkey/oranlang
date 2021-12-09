@@ -1,22 +1,23 @@
 
 @builtin "number.ne" 
 @builtin "whitespace.ne" 
-@{%
-const unest = (d) =>{
-	return d.flat(10)
-}
-%}
+ 
 
-main -> asignment {% id %}
+main -> assignment 
 
-#----------asignment ----------
-asignment -> operation _ "=>" _ var {% d=>  {type:"asignment", name: null, value: [d[4], d[0] ] }%}
-asignment -> var _ "<=" _ operation {% d=>   {type:"asignment",name: null, value:[d[0],  d[4] ] }%}
+#----------assignment ----------
+assignment -> operation _ "=>" _ var  {% d=>{ 
+	return {"type":"assignment","name": d[4], "value":  d[0]  } 
+
+}%}
+assignment -> var _ "<=" _ operation  {% d=>{  
+	
+	return {"type":"assignment","name": d[0], "value":  d[4]  } }%}
  
 
 
 # --------exterinal----------
-operation ->   point {% d=>  ["point", d[0]] %}
+operation ->   point {% d=>  ( {"type":"point","name": null,  "value":d[0] } ) %}
 operation ->  number {% id %}
 operation ->  quoated_string {% id %}
  

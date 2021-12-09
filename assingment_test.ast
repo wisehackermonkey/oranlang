@@ -1,5 +1,14 @@
-{
- "type": "asignment",
- "name": "bc",
- "value": 9000
-}
+[
+ {
+  "type": "assignment",
+  "name": "works",
+  "value": {
+   "type": "point",
+   "name": null,
+   "value": [
+    "123",
+    "3"
+   ]
+  }
+ }
+]

@@ -29,10 +29,25 @@ pnpm install --save nearley
 
 nearleyc grammer.ne -o grammer.js
 ```
+## full chain
+```bash
+nearleyc assingment.ne -o assingment.js
+node ./runner.js  assingment_test.olang
+node ./generator.js assingment_test.ast
+node assingment_test.compiled.olang.js
+
+
+nearleyc assingment.ne -o assingment.js ; node ./runner.js  assingment_test.olang ; node ./generator.js assingment_test.ast ; node assingment_test.compiled.olang.js
+
+nodemon -w grammer.ne -w generator.js -w assingment_test.olang --exec "nearleyc assingment.ne -o assingment.js && node ./runner.js  assingment_test.olang && node ./generator.js assingment_test.ast && node assingment_test.compiled.olang.js"
+```
+
 ### sub lanuage features
 ```bash
 nearleyc assingment.ne -o assingment.js
 ```
+
+
 
 ### how to generate rail road diagram
 ```bash
