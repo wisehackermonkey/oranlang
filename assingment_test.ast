@@ -1,13 +1,25 @@
 [
  {
   "type": "assignment",
-  "name": "works",
+  "name": {
+   "type": "var",
+   "name": "test",
+   "value": "test"
+  },
   "value": {
    "type": "point",
    "name": null,
    "value": [
-    "123",
-    "3"
+    {
+     "type": "number",
+     "name": null,
+     "value": 123
+    },
+    {
+     "type": "number",
+     "name": null,
+     "value": 3
+    }
    ]
   }
  }

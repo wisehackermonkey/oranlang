@@ -22,23 +22,27 @@ const generate = (ast) => {
 
 const generateStatement = (token) => {
     switch (token.type) {
-
-        case "point": return point(token.value); break;
         case "assignment":
-            let value = generateStatement(token.value)
-            return assignment(token.name, token.value);
+            var expression = generateStatement(token.value)
+            return `var ${token.name.name} = ${expression}`
 
             break;
+        case "point":
+            let arrayList = token.value.map((_token) => {
+                return generateStatement(_token)
+            }).join(", ")
+
+            return `[${arrayList}]`; break;
+
+        case "number": return token.value; break;
+        case "var": return token.value; break;
+
         default:
             throw new Error(`Error: token was unparseable "${JSON.stringify(token)}"`)
             break;
     }
 }
-const assignment = (name, value) => `var ${name} = ${value}`
 
-const point = (value) => {
-    return [...value]
-}
 
 let code = generate(ast)
 console.log("###\n", code, "\n###")

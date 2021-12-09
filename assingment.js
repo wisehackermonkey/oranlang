@@ -124,8 +124,8 @@ var grammar = {
     {"name": "string", "symbols": ["string$ebnf$1"]},
     {"name": "var$ebnf$1", "symbols": [/[a-zA-Z0-9_]/]},
     {"name": "var$ebnf$1", "symbols": ["var$ebnf$1", /[a-zA-Z0-9_]/], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
-    {"name": "var", "symbols": ["var$ebnf$1"], "postprocess": d=>  d[0].join("")},
-    {"name": "number", "symbols": ["int"], "postprocess": id}
+    {"name": "var", "symbols": ["var$ebnf$1"], "postprocess": d=> ( {"type":"var","name": d[0].join(""),  "value":d[0].join("") } )},
+    {"name": "number", "symbols": ["int"], "postprocess": d=> ( {"type":"number","name": null,  "value":d[0] } )}
 ]
   , ParserStart: "main"
 }

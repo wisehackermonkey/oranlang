@@ -1,1 +1,1 @@
-var works = [object Object]
+var test = [123, 3]
