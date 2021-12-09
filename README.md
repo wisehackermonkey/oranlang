@@ -125,6 +125,13 @@ alias grun='java -Xmx500M -cp "/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH"
 # Deveopment
 ### 
 ```bash
+
+docker run --rm -u $(id -u ${USER}):$(id -g ${USER}) -v `pwd`:/work antlr/antlr4 -Dlanguage=Javascript oranlang.g4
+docker run --rm -u $(id -u ${USER}):$(id -g ${USER}) -v `pwd`:/work antlr/antlr4 -Dlanguage=Javascript JSON.g4
+
+
+docker run --rm   -v ${PWD}:/work antlr/antlr4 -Dlanguage=Javascript JSON.g4
+
 ```
 
 
