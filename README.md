@@ -24,10 +24,20 @@
 ### 
 ##### 
 ```bash
-yarn global add nearley 
+pnpm install -g nearley 
+pnpm install --save nearley 
 
+nearleyc grammer.ne -o grammer.js
+```
+### sub lanuage features
+```bash
+nearleyc assingment.ne -o assingment.js
+```
+
+### how to generate rail road diagram
+```bash
 nearley-railroad grammer.ne -o grammer.html
-yarn global add http-server nodemon
+pnpm install -g http-server nodemon
 http-server
 
 nodemon -w grammer.ne --exec 'nearley-railroad grammer.ne -o grammer.html && http-server'
