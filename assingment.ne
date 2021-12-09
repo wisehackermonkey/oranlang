@@ -1,7 +1,6 @@
 @builtin "whitespace.ne"
 @builtin "number.ne" 
 
-main -> print
 main -> _ code_block  {% (d) => d[1] %}
 
 code_block ->  _ "\n" code_block                  {% (d) => d[2] %}

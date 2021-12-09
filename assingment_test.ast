@@ -1,26 +1,24 @@
 [
- {
-  "type": "assignment",
-  "name": {
-   "type": "var",
+ [
+  {
+   "type": "assignment",
    "name": "test",
-   "value": "test"
-  },
-  "value": {
-   "type": "point",
-   "name": null,
-   "value": [
-    {
-     "type": "number",
-     "name": null,
-     "value": 123
-    },
-    {
-     "type": "number",
-     "name": null,
-     "value": 3
-    }
-   ]
+   "value": {
+    "type": "point",
+    "name": null,
+    "value": [
+     {
+      "type": "number",
+      "name": null,
+      "value": 123
+     },
+     {
+      "type": "number",
+      "name": null,
+      "value": 3
+     }
+    ]
+   }
   }
- }
+ ]
 ]
