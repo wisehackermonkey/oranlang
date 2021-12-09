@@ -98,7 +98,6 @@ var grammar = {
             );
         }
         },
-    {"name": "main", "symbols": ["print"]},
     {"name": "main", "symbols": ["_", "code_block"], "postprocess": (d) => d[1]},
     {"name": "code_block", "symbols": ["_", {"literal":"\n"}, "code_block"], "postprocess": (d) => d[2]},
     {"name": "code_block", "symbols": ["_", "runnable_code", "_"], "postprocess": d => [d[1]]},

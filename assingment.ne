@@ -3,14 +3,22 @@
 
 main -> _ code_block  {% (d) => d[1] %}
 
-code_block ->  _ "\n" code_block                  {% (d) => d[2] %}
-code_block ->  _ runnable_code _                  {% d => [d[1]] %}
-code_block ->  _ runnable_code _ "\n" code_block  {% d => [d[1], ...d[4]] %}
+code_block ->  _ "\n" code_block                  {% d => d[2] %}
+code_block ->  _ runnable_code _                  {% d => d[1] %}
+code_block ->  _ runnable_code _ "\n" code_block  {% d => {
+	//fixes issue with not iteriable  `"\n" code_block`
+	if(d[4].length >= 1){
+		return [d[1], ...d[4]]
+	}else{
+		return [d[1], d[4]]
+
+	}
+}%}
     
 	 
 
-runnable_code -> assignment
-runnable_code -> print
+runnable_code -> assignment {% id %}
+runnable_code -> print  {% id %}
     
 	 
 
