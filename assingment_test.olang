@@ -1,2 +1,4 @@
-works<=((123,3))
+works<=`sdf`
+`sdf`=> test
 print works
+print test

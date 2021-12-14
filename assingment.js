@@ -123,6 +123,7 @@ var grammar = {
         return {"type":"assignment","name": d[0], "value":  d[4]  } }},
     {"name": "print$string$1", "symbols": [{"literal":"p"}, {"literal":"r"}, {"literal":"i"}, {"literal":"n"}, {"literal":"t"}], "postprocess": function joiner(d) {return d.join('');}},
     {"name": "print", "symbols": ["print$string$1", "_", "operation", "_"], "postprocess": d=>  ( {"type":"print","name": null,  "value":d[2] } )},
+    {"name": "operation", "symbols": ["var"], "postprocess": d=>  ( {"type":"var","name": null,  "value":d[0] } )},
     {"name": "operation", "symbols": ["point"], "postprocess": d=>  ( {"type":"point","name": null,  "value":d[0] } )},
     {"name": "operation", "symbols": ["number"], "postprocess": id},
     {"name": "operation", "symbols": ["quoated_string"], "postprocess": id},

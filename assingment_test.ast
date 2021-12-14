@@ -3,29 +3,36 @@
   "type": "assignment",
   "name": "works",
   "value": {
-   "type": "point",
+   "type": "string",
    "name": null,
-   "value": [
-    {
-     "type": "number",
-     "name": null,
-     "value": 123
-    },
-    {
-     "type": "number",
-     "name": null,
-     "value": 3
-    }
-   ]
+   "value": "sdf"
+  }
+ },
+ {
+  "type": "assignment",
+  "name": "test",
+  "value": {
+   "type": "string",
+   "name": null,
+   "value": "sdf"
   }
  },
  {
   "type": "print",
   "name": null,
   "value": {
-   "type": "point",
+   "type": "var",
    "name": null,
    "value": "works"
+  }
+ },
+ {
+  "type": "print",
+  "name": null,
+  "value": {
+   "type": "var",
+   "name": null,
+   "value": "test"
   }
  }
 ]

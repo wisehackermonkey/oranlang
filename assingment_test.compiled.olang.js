@@ -1,3 +1,4 @@
-var undefined = [123, 3]
-var undefined = [123, 3]
-[object Object]
+var works = "sdf"
+var test = "sdf"
+console.log(works)
+console.log(test)
